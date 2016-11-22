@@ -4,7 +4,7 @@
       "version": "1.1.0",
       "type": "platform"
     },
-    "Microsoft.AspNetCore.OData": "6.0.0-alpha1",
+    "Microsoft.AspNetCore.OData.Radzen": "1.0.0",
     "Microsoft.AspNetCore.Mvc": "1.1.0",
     "Microsoft.AspNetCore.Routing": "1.1.0",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",

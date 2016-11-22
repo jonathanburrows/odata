@@ -1,6 +1,6 @@
 {
-  "title": "Microsoft.AspNetCore.OData",
-  "version": "6.0.0-alpha1-rtm",
+  "title": "Microsoft.AspNetCore.OData.Radzen",
+  "version": "1.0.0",
   "description": "Microsoft.AspNetCore.OData",
 
   "dependencies": {

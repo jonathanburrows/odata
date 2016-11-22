@@ -1,6 +1,5 @@
 {
   "projects":[
-    "Sample",
-    "Microsoft.AspNet.OData"
+    "Sample"
   ]
 }
