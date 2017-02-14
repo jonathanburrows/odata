@@ -24,10 +24,10 @@ namespace Sample.Controllers
     }
 
     // GET api/values/5
-    [HttpGet("{id}")]
-      public string Get(int id)
+    [HttpGet("{productId}")]
+      public IActionResult GetProduct(int productId)
       {
-        return "value";
+        return new ObjectResult(productId);
       }
 
     // POST api/values

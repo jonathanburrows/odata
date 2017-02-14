@@ -8,7 +8,7 @@ namespace Microsoft.AspNetCore.OData
     internal static class SRResources
     {
         private static readonly ResourceManager _resourceManager
-            = new ResourceManager("Microsoft.AspNetCore.OData.SRResources", typeof(SRResources).GetTypeInfo().Assembly);
+            = new ResourceManager("Microsoft.AspNetCore.OData.Radzen.SRResources", typeof(SRResources).GetTypeInfo().Assembly);
 
         /// <summary>
         /// Cannot serialize a null '{0}'.

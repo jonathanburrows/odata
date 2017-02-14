@@ -24,6 +24,7 @@ namespace Microsoft.AspNetCore.OData
         public ODataFeature()
         {
             Model = EdmCoreModel.Instance; // default Edm model
+            RoutingConventionsStore = new Dictionary<string, object>();
         }
 
         /// <summary>
