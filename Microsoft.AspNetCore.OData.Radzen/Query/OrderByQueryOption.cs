@@ -9,6 +9,7 @@ using System.Linq.Expressions;
 using Microsoft.AspNetCore.OData.Common;
 using Microsoft.AspNetCore.OData.Query.Expressions;
 using Microsoft.AspNetCore.OData.Query.Validators;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OData;
 using Microsoft.OData.Edm;
 using Microsoft.OData.UriParser;
@@ -24,6 +25,8 @@ namespace Microsoft.AspNetCore.OData.Query
         private IList<OrderByNode> _orderByNodes;
         private ODataQueryOptionParser _queryOptionParser;
 
+        private IAssemblyProvider _assemblyProvider;
+
         /// <summary>
         /// Initialize a new instance of <see cref="OrderByQueryOption"/> based on the raw $orderby value and
         /// an EdmModel from <see cref="ODataQueryContext"/>.
@@ -31,7 +34,7 @@ namespace Microsoft.AspNetCore.OData.Query
         /// <param name="rawValue">The raw value for $orderby query. It can be null or empty.</param>
         /// <param name="context">The <see cref="ODataQueryContext"/> which contains the <see cref="IEdmModel"/> and some type information</param>
         /// <param name="queryOptionParser">The <see cref="ODataQueryOptionParser"/> which is used to parse the query option.</param>
-        public OrderByQueryOption(string rawValue, ODataQueryContext context, ODataQueryOptionParser queryOptionParser)
+        public OrderByQueryOption(string rawValue, ODataQueryContext context, ODataQueryOptionParser queryOptionParser, IAssemblyProvider assemblyProvider)
         {
             if (context == null)
             {
@@ -48,6 +51,7 @@ namespace Microsoft.AspNetCore.OData.Query
                 throw Error.ArgumentNull("queryOptionParser");
             }
 
+            _assemblyProvider = assemblyProvider;
             Context = context;
             RawValue = rawValue;
             Validator = new OrderByQueryValidator();
@@ -278,8 +282,15 @@ namespace Microsoft.AspNetCore.OData.Query
             // TODO: 
             //Context.UpdateQuerySettings(querySettings, query);
 
+            var services = new ServiceCollection();
+            services.AddSingleton<ODataQuerySettings>(querySettings);
+            services.AddSingleton<IEdmModel>(Context.Model);
+            services.AddSingleton<IAssemblyProvider>(_assemblyProvider);
+
+            var requestContainer = services.BuildServiceProvider();
             LambdaExpression orderByExpression =
-                FilterBinder.Bind(orderbyClause, Context.ElementClrType, /*Context.RequestContainer*/ null);
+                //FilterBinder.Bind(orderbyClause, Context.ElementClrType, /*Context.RequestContainer*/ null);
+                FilterBinder.Bind(orderbyClause, Context.ElementClrType, requestContainer);
             querySoFar = ExpressionHelpers.OrderBy(querySoFar, orderByExpression, direction, Context.ElementClrType,
                 alreadyOrdered);
             return querySoFar;

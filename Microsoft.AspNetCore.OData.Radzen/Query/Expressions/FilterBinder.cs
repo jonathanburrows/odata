@@ -58,7 +58,7 @@ namespace Microsoft.AspNetCore.OData.Query.Expressions
                 throw Error.ArgumentNull("requestContainer");
             }
 
-            FilterBinder binder = requestContainer.GetRequiredService<FilterBinder>();
+            FilterBinder binder = new FilterBinder(requestContainer);
             binder._filterType = filterType;
 
             return BindFilterClause(binder, filterClause, filterType);
@@ -70,7 +70,7 @@ namespace Microsoft.AspNetCore.OData.Query.Expressions
             Contract.Assert(elementType != null);
             Contract.Assert(requestContainer != null);
 
-            FilterBinder binder = requestContainer.GetRequiredService<FilterBinder>();
+            FilterBinder binder = new FilterBinder(requestContainer);
             binder._filterType = elementType;
 
             return BindOrderByClause(binder, orderBy, elementType);

@@ -1,6 +1,6 @@
 {
   "title": "Microsoft.AspNetCore.OData.Radzen",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Microsoft.AspNetCore.OData",
 
   "buildOptions": {

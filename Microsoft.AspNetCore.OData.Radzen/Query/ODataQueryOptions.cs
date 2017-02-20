@@ -203,7 +203,7 @@ namespace Microsoft.AspNetCore.OData.Query
                     case "$orderby":
                         ThrowIfEmpty(kvp.Value, "$orderby");
                         RawValues.OrderBy = kvp.Value;
-                        OrderBy = new OrderByQueryOption(kvp.Value, Context, _queryOptionParser);
+                        OrderBy = new OrderByQueryOption(kvp.Value, Context, _queryOptionParser, _assemblyProvider);
                         break;
                     case "$top":
                         ThrowIfEmpty(kvp.Value, "$top");
