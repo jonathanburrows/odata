@@ -2,7 +2,7 @@ namespace Sample
 {
   public class Product
   {
-    public int ID
+    public int? Id
     {
       get;
       set;

@@ -497,7 +497,7 @@ namespace Microsoft.AspNetCore.OData.Query.Expressions
                 left = ToNullable(left);
                 right = ToNullable(right);
 
-                bool liftToNull = true;
+                bool liftToNull = false;
                 if (left == NullConstant || right == NullConstant)
                 {
                     liftToNull = false;
