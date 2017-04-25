@@ -400,6 +400,15 @@ namespace Microsoft.AspNetCore.OData.Query.Expressions
                     // so no need to do any null propagation
                     return functionCall;
                 }
+                else if (functionCall.Type == typeof(bool))
+                {
+                    // Entity Framework cant handle comparisons between bool and Nullable<bool>
+                    return
+                        Expression.Condition(
+                        test: test,
+                        ifTrue: FalseConstant,
+                        ifFalse: functionCall);
+                }
                 else
                 {
                     // if one of the arguments is null, result is null (not defined)
