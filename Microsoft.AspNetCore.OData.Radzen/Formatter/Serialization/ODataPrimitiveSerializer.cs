@@ -208,6 +208,11 @@ namespace Microsoft.AspNetCore.OData.Formatter.Serialization
                         {
                             return TimeZoneInfo.ConvertTime(new DateTimeOffset(dateTime), timeZone);
                         }
+                        
+                        if (dateTime.Kind == DateTimeKind.Unspecified)
+                        {
+                            return new DateTimeOffset(dateTime, TimeSpan.Zero);
+                        }
 
                         return new DateTimeOffset(dateTime, timeZone.GetUtcOffset(dateTime));
 

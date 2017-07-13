@@ -44,7 +44,7 @@ namespace Sample
       //services.AddSingleton<NorthwindContext>();
 
       services.AddDbContext<NorthwindContext>(options =>
-          options.UseSqlServer("Server=localhost,1433;Initial Catalog=Test;Persist Security Info=False;User ID=sa;Password=qazQAZ123@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;"));
+          options.UseSqlServer(Configuration.GetConnectionString("NorthwindConnection")));
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,7 +64,10 @@ namespace Sample
     {
       var builder = new ODataConventionModelBuilder(provider);
       builder.ContainerName = "NorthwindContext";
+
       builder.EntitySet<Product>("Products");
+
+      builder.EntitySet<Order>("Orders");
 
       return builder.GetEdmModel();
     }

@@ -1,14 +1,16 @@
+using System;
+
 namespace Sample
 {
-  public class Product
+  public class Order
   {
-    public int? ProductId
+    public int? OrderID
     {
       get;
       set;
     }
 
-    public string ProductName
+    public DateTime? OrderDate
     {
       get;
       set;
