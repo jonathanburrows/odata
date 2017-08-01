@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>Microsoft.AspNetCore.OData</Description>
     <AssemblyTitle>Microsoft.AspNetCore.OData.Radzen</AssemblyTitle>
-    <VersionPrefix>1.0.8</VersionPrefix>
+    <VersionPrefix>1.0.9</VersionPrefix>
     <TargetFramework>netcoreapp1.0</TargetFramework>
     <AssemblyName>Microsoft.AspNetCore.OData.Radzen</AssemblyName>
     <PackageId>Microsoft.AspNetCore.OData.Radzen</PackageId>

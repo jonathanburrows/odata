@@ -84,8 +84,11 @@ namespace Microsoft.AspNetCore.OData.Formatter
                     if (value is DateTimeOffset)
                     {
                         DateTimeOffset dateTimeOffsetValue = (DateTimeOffset)value;
-                        TimeZoneInfo timeZone = TimeZoneInfoHelper.TimeZone;
-                        dateTimeOffsetValue = dateTimeOffsetValue.ToUniversalTime().ToOffset(timeZone.BaseUtcOffset);
+                        if (dateTimeOffsetValue.Offset != TimeSpan.Zero)
+                        {
+                            TimeZoneInfo timeZone = TimeZoneInfoHelper.TimeZone;
+                            dateTimeOffsetValue = dateTimeOffsetValue.ToUniversalTime().ToOffset(timeZone.BaseUtcOffset);
+                        }
                         return dateTimeOffsetValue.DateTime;
                     }
 
