@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData;
 using Microsoft.AspNetCore.OData.Routing;
-
+using Sample.Models;
 namespace Sample.Controllers
 {
   [ODataRoute("odata/Products")]

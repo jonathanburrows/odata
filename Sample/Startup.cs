@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.OData;
 using Microsoft.AspNetCore.OData.Builder;
 using Microsoft.AspNetCore.OData.Routing.Conventions;
 using Microsoft.OData.Edm;
-
+using Sample.Models;
 namespace Sample
 {
   public class Startup
@@ -44,7 +44,7 @@ namespace Sample
       //services.AddSingleton<NorthwindContext>();
 
       services.AddDbContext<NorthwindContext>(options =>
-          options.UseSqlServer(Configuration.GetConnectionString("NorthwindConnection")));
+          options.UseSqlServer(""));
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
