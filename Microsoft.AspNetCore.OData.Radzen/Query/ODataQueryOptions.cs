@@ -162,9 +162,14 @@ namespace Microsoft.AspNetCore.OData.Query
                 query = OrderBy.ApplyTo(query, querySettings);
             }
 
+            if (SelectExpand != null)
+            {
+                query = SelectExpand.ApplyTo(query, querySettings, _assemblyProvider);
+            }
+
             if (Skip.HasValue)
             {
-                query = ExpressionHelpers.Skip(query, Skip.Value, Context.ElementClrType, false);
+                query = ExpressionHelpers.Skip(query, Skip.Value, query.ElementType, false);
             }
 
             int? take = null;
@@ -178,12 +183,7 @@ namespace Microsoft.AspNetCore.OData.Query
             }
             if (take.HasValue)
             {
-                query = ExpressionHelpers.Take(query, take.Value, Context.ElementClrType, false);
-            }
-
-            if (SelectExpand != null)
-            {
-                query = SelectExpand.ApplyTo(query, querySettings, _assemblyProvider);
+                query = ExpressionHelpers.Take(query, take.Value, query.ElementType, false);
             }
 
             return query;
