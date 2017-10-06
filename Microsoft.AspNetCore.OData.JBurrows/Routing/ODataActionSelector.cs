@@ -32,12 +32,12 @@ namespace Microsoft.AspNetCore.OData.Routing
         /// <param name="actionConstraintProviders"></param>
         /// <param name="loggerFactory"></param>
         public ODataActionSelector(IServiceProvider serviceProvider,
-            IActionSelectorDecisionTreeProvider decisionTreeProvider,
+            IActionDescriptorCollectionProvider actionDescriptorCollectionProvider,
             ActionConstraintCache actionConstraintProviders,
             ILoggerFactory loggerFactory)
         {
             _serviceProvider = serviceProvider;
-            _selector = new ActionSelector(decisionTreeProvider, actionConstraintProviders, loggerFactory);
+            _selector = new ActionSelector(actionDescriptorCollectionProvider, actionConstraintProviders, loggerFactory);
         }
 
         public bool HasValidAction(VirtualPathContext context)

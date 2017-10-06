@@ -4,8 +4,8 @@
     <Description>Microsoft.AspNetCore.OData</Description>
     <AssemblyTitle>Microsoft.AspNetCore.OData.Radzen</AssemblyTitle>
     <VersionPrefix>1.0.9</VersionPrefix>
-    <TargetFramework>netcoreapp1.0</TargetFramework>
-    <AssemblyName>Microsoft.AspNetCore.OData.Radzen</AssemblyName>
+    <TargetFramework>net461</TargetFramework>
+    <AssemblyName>Microsoft.AspNetCore.OData.JBurrows</AssemblyName>
     <PackageId>Microsoft.AspNetCore.OData.Radzen</PackageId>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50;portable-net45+win8+wpa81</PackageTargetFallback>
     <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
@@ -19,8 +19,12 @@
     <PackageReference Include="Microsoft.OData.Core" Version="7.0.0" />
     <PackageReference Include="Microsoft.OData.Edm" Version="7.0.0" />
     <PackageReference Include="Microsoft.Spatial" Version="7.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="1.1.2" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
 
 </Project>

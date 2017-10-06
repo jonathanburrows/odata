@@ -217,6 +217,7 @@ namespace Microsoft.AspNetCore.OData.Query
                         break;
                     case "$select":
                         RawValues.Select = kvp.Value;
+                        SelectExpand = new SelectExpandQueryOption(kvp.Value, string.Empty, Context, _queryOptionParser, Request);
                         break;
                     case "$count":
                         // According to the OData 4 protocol, the value of this query option is optional:

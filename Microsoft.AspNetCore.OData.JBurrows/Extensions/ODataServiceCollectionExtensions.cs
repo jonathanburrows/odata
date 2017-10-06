@@ -46,16 +46,16 @@ namespace Microsoft.AspNetCore.OData.Extensions
             // Deserializer provider
             services.AddSingleton<IODataDeserializerProvider, DefaultODataDeserializerProvider>();
 
-            services.AddMvcCore(options =>
-            {
-                options.InputFormatters.Insert(0, new ModernInputFormatter());
+            //services.AddMvcCore(options =>
+            //{
+            //    options.InputFormatters.Insert(0, new ModernInputFormatter());
 
-                foreach (var outputFormatter in ODataOutputFormatters.Create())
-                {
-                    options.OutputFormatters.Insert(0, outputFormatter);
-                }
-                //options.OutputFormatters.Insert(0, new ModernOutputFormatter());
-            });
+            //    foreach (var outputFormatter in ODataOutputFormatters.Create())
+            //    {
+            //        options.OutputFormatters.Insert(0, outputFormatter);
+            //    }
+            //    //options.OutputFormatters.Insert(0, new ModernOutputFormatter());
+            //});
 
             services.AddSingleton<IActionSelector, ODataActionSelector>();
             services.AddSingleton<IETagHandler, DefaultODataETagHandler>();
