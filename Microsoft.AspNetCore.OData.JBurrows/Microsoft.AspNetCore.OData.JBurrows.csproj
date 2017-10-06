@@ -6,7 +6,7 @@
     <VersionPrefix>1.0.9</VersionPrefix>
     <TargetFramework>net461</TargetFramework>
     <AssemblyName>Microsoft.AspNetCore.OData.JBurrows</AssemblyName>
-    <PackageId>Microsoft.AspNetCore.OData.Radzen</PackageId>
+    <PackageId>Microsoft.AspNetCore.OData.JBurrows</PackageId>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50;portable-net45+win8+wpa81</PackageTargetFallback>
     <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
   </PropertyGroup>
